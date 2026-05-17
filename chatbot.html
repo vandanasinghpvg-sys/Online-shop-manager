@@ -1,0 +1,198 @@
+<!-- =========================
+FILE 4 : chatbot.html
+========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Chatbot</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Poppins;
+    background:#020617;
+    color:white;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 50px;
+    background:#111827;
+}
+
+.logo{
+    color:#38bdf8;
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+}
+
+.chatbot{
+    margin:40px;
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+}
+
+.chat-box{
+    height:300px;
+    overflow-y:auto;
+    background:#0f172a;
+    border-radius:15px;
+    padding:20px;
+}
+
+.message{
+    margin:15px 0;
+    padding:15px;
+    border-radius:15px;
+}
+
+.bot{
+    background:#334155;
+}
+
+.user{
+    background:#38bdf8;
+    text-align:right;
+}
+
+.chat-input{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.chat-input input{
+    flex:1;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#0f172a;
+    color:white;
+}
+
+button{
+    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+    background:#38bdf8;
+    color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">AI Chatbot</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="dashboard.html">Dashboard</a></li>
+<li><a href="analytics.html">Analytics</a></li>
+</ul>
+
+</nav>
+
+<section class="chatbot">
+
+<div class="chat-box" id="chatBox">
+
+<div class="message bot">
+Hello 👋 Ask me about products, stock or sales.
+</div>
+
+</div>
+
+<div class="chat-input">
+
+<input type="text" id="userInput" placeholder="Ask something...">
+
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+</section>
+
+<script>
+
+function sendMessage(){
+
+let input = document.getElementById("userInput");
+let chatBox = document.getElementById("chatBox");
+
+let text = input.value;
+
+if(text.trim() === ""){
+return;
+}
+
+let userMessage = document.createElement("div");
+
+userMessage.classList.add("message","user");
+
+userMessage.innerText = text;
+
+chatBox.appendChild(userMessage);
+
+let botMessage = document.createElement("div");
+
+botMessage.classList.add("message","bot");
+
+let reply = "";
+
+let msg = text.toLowerCase();
+
+if(msg.includes("sales")){
+reply = "📈 Sales increased by 12% this week.";
+}
+else if(msg.includes("stock")){
+reply = "⚠️ 7 products are low in stock.";
+}
+else if(msg.includes("product")){
+reply = "🛒 Top-selling product is Wireless Mouse.";
+}
+else{
+reply = "🤖 AI Assistant is ready to help your business.";
+}
+
+setTimeout(()=>{
+
+botMessage.innerText = reply;
+
+chatBox.appendChild(botMessage);
+
+chatBox.scrollTop = chatBox.scrollHeight;
+
+},500);
+
+input.value = "";
+
+}
+
+</script>
+
+</body>
+</html>

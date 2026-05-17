@@ -1,0 +1,229 @@
+<!-- =========================
+FILE 1 : dashboard.html
+Editable Dashboard
+========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Editable Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Poppins;
+    background:#020617;
+    color:white;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 50px;
+    background:#111827;
+}
+
+.logo{
+    color:#38bdf8;
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:40px;
+}
+
+.card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.number{
+    font-size:45px;
+    color:#38bdf8;
+    margin:15px 0;
+}
+
+input{
+    width:80%;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    margin-top:10px;
+    background:#0f172a;
+    color:white;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+    background:#38bdf8;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0ea5e9;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">Editable Dashboard</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="analytics.html">Analytics</a></li>
+<li><a href="chatbot.html">Chatbot</a></li>
+</ul>
+
+</nav>
+
+<section class="dashboard">
+
+<!-- PRODUCTS -->
+
+<div class="card">
+
+<h2>Total Products</h2>
+
+<div class="number" id="productsValue">120</div>
+
+<input type="number" id="productsInput" placeholder="Enter new value">
+
+<br>
+
+<button onclick="updateProducts()">
+Update
+</button>
+
+</div>
+
+<!-- ORDERS -->
+
+<div class="card">
+
+<h2>Total Orders</h2>
+
+<div class="number" id="ordersValue">82</div>
+
+<input type="number" id="ordersInput" placeholder="Enter new value">
+
+<br>
+
+<button onclick="updateOrders()">
+Update
+</button>
+
+</div>
+
+<!-- REVENUE -->
+
+<div class="card">
+
+<h2>Revenue</h2>
+
+<div class="number" id="revenueValue">72000</div>
+
+<input type="number" id="revenueInput" placeholder="Enter new revenue">
+
+<br>
+
+<button onclick="updateRevenue()">
+Update
+</button>
+
+</div>
+
+<!-- STOCK -->
+
+<div class="card">
+
+<h2>Low Stock</h2>
+
+<div class="number" id="stockValue">7</div>
+
+<input type="number" id="stockInput" placeholder="Enter new stock">
+
+<br>
+
+<button onclick="updateStock()">
+Update
+</button>
+
+</div>
+
+</section>
+
+<script>
+
+function updateProducts(){
+
+let value =
+document.getElementById("productsInput").value;
+
+document.getElementById("productsValue").innerText = value;
+
+}
+
+function updateOrders(){
+
+let value =
+document.getElementById("ordersInput").value;
+
+document.getElementById("ordersValue").innerText = value;
+
+}
+
+function updateRevenue(){
+
+let value =
+document.getElementById("revenueInput").value;
+
+document.getElementById("revenueValue").innerText =
+"₹" + value;
+
+}
+
+function updateStock(){
+
+let value =
+document.getElementById("stockInput").value;
+
+document.getElementById("stockValue").innerText = value;
+
+}
+
+</script>
+
+</body>
+</html>

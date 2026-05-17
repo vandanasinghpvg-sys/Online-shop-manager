@@ -1,0 +1,234 @@
+<!-- =========================
+FILE 2 : analytics.html
+Editable Analytics
+========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Editable Analytics</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Poppins;
+    background:#020617;
+    color:white;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 50px;
+    background:#111827;
+}
+
+.logo{
+    color:#38bdf8;
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+}
+
+.analytics{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:40px;
+}
+
+.card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.number{
+    font-size:45px;
+    color:#38bdf8;
+    margin:15px 0;
+}
+
+input{
+    width:80%;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    margin-top:10px;
+    background:#0f172a;
+    color:white;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+    background:#38bdf8;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0ea5e9;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">Editable Analytics</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="dashboard.html">Dashboard</a></li>
+<li><a href="chatbot.html">Chatbot</a></li>
+</ul>
+
+</nav>
+
+<section class="analytics">
+
+<!-- SALES -->
+
+<div class="card">
+
+<h2>Weekly Sales</h2>
+
+<div class="number" id="salesValue">12%</div>
+
+<input type="text" id="salesInput" placeholder="Enter new sales">
+
+<br>
+
+<button onclick="updateSales()">
+Update
+</button>
+
+</div>
+
+<!-- VISITORS -->
+
+<div class="card">
+
+<h2>Visitors</h2>
+
+<div class="number" id="visitorValue">1200</div>
+
+<input type="number" id="visitorInput" placeholder="Enter visitors">
+
+<br>
+
+<button onclick="updateVisitors()">
+Update
+</button>
+
+</div>
+
+<!-- PROFIT -->
+
+<div class="card">
+
+<h2>Profit Growth</h2>
+
+<div class="number" id="profitValue">18%</div>
+
+<input type="text" id="profitInput" placeholder="Enter profit growth">
+
+<br>
+
+<button onclick="updateProfit()">
+Update
+</button>
+
+</div>
+
+<!-- TOP PRODUCT -->
+
+<div class="card">
+
+<h2>Top Product</h2>
+
+<div class="number" id="productValue">
+Mouse
+</div>
+
+<input type="text" id="productInput" placeholder="Enter product">
+
+<br>
+
+<button onclick="updateProduct()">
+Update
+</button>
+
+</div>
+
+</section>
+
+<script>
+
+function updateSales(){
+
+let value =
+document.getElementById("salesInput").value;
+
+document.getElementById("salesValue").innerText =
+value;
+
+}
+
+function updateVisitors(){
+
+let value =
+document.getElementById("visitorInput").value;
+
+document.getElementById("visitorValue").innerText =
+value;
+
+}
+
+function updateProfit(){
+
+let value =
+document.getElementById("profitInput").value;
+
+document.getElementById("profitValue").innerText =
+value;
+
+}
+
+function updateProduct(){
+
+let value =
+document.getElementById("productInput").value;
+
+document.getElementById("productValue").innerText =
+value;
+
+}
+
+</script>
+
+</body>
+</html>
